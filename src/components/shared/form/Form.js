@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import moduleName from 'module'
 
 
-const Form=({children})=>{
+const Form=({children, onSubmit,index})=>{
 
   return (
-    <form>
+    <form onSubmit ={onSubmit} data-index={index}>
       {children}
     </form>
   )

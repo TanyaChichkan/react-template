@@ -9,6 +9,17 @@ import CardTitle from '../shared/cardTitle/CardTitle';
 import data from '../../utils/selectOptions';
 import moment from 'moment';
 
+import { v4 as uuidv4 } from 'uuid';
+
+const intialState={
+  date: moment(Date.now()).format('YYYY-MM-DD'),
+  time: moment(Date.now()).format('HH:mm'),
+  category: "",
+  amount:"",
+  currency: '',
+  id:""
+};
+
 class CardIncome extends Component{
 
   state={
@@ -16,12 +27,21 @@ class CardIncome extends Component{
     time: moment(Date.now()).format('HH:mm'),
     category: "",
     amount:"",
-    currency: ''
+    currency: '',
+    id:""
   }
 
   handlerChange=(e)=>{
     const {name,value}= e.target;
     this.setState({[name]:value})
+  }
+
+  handleSubmit=e=>{
+    e.preventDefault();
+    this.props.onAddIncome({...this.state, id: uuidv4()})
+    this.setState(intialState);
+    this.props.onToggleIncome(e);
+
   }
 
   render(){
@@ -31,8 +51,8 @@ class CardIncome extends Component{
 
     <>
     <Section>
-      <Form>
-        <CardTitle title="Доходы"/>
+      <Form onSubmit={this.handleSubmit}>
+        <CardTitle title="Доходы" onClose={this.props.onClose}/>
         <div className="inputWrapper">
 
           <Input
@@ -55,7 +75,7 @@ class CardIncome extends Component{
 
         <div className="inputWrapper">
           <Select
-            sets={data.category}
+            sets={data.income}
             onChange={this.handlerChange}
             value={category}
           />
@@ -74,7 +94,7 @@ class CardIncome extends Component{
 
         <div className="inputWrapper">
         <Select
-          sets={data.income}
+          sets={data.currency}
           onChange={this.handlerChange}
           value={currency}
         />

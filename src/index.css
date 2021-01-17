@@ -16,3 +16,7 @@ code {
   display: flex;
   margin-bottom: 20px;
 }
+
+h2,p{
+  margin:0
+}

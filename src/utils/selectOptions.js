@@ -1,4 +1,4 @@
-const category={title: "Категория",
+const expenses={title: "Категория",
 name: "category",
   options:[
     {value:"", title: "Выбор категории"},
@@ -31,4 +31,4 @@ name: "income",
   ]
 };
 
-export default {category, currency, income};
+export default {expenses, currency, income};

@@ -4,12 +4,12 @@ import Section  from '../shared/section/Section';
 import Form from '../shared/form/Form';
 import Input from '../shared/input/Input';
 import Select from '../shared/select/Select';
-
-import data from '../../utils/selectOptions';
-import moment from 'moment';
 import CardTitle from '../shared/cardTitle/CardTitle';
 
+import moment from 'moment';
+
 import { v4 as uuidv4 } from 'uuid';
+
 
 const intialState={
   date: moment(Date.now()).format('YYYY-MM-DD'),
@@ -20,7 +20,7 @@ const intialState={
   id:""
 };
 
-class CardSpendings extends Component{
+class Card extends Component{
 
   state={
     date: moment(Date.now()).format('YYYY-MM-DD'),
@@ -38,21 +38,24 @@ class CardSpendings extends Component{
 
   handleSubmit=e=>{
     e.preventDefault();
-    const cost = {...this.state, id:uuidv4()};
-    this.props.onAddExpenses(cost);
-    this.props.onToggleSpendings(e);
+    const index = e.target.dataset.index;
+    this.props.onAddItem(index,
+    {...this.state, id: uuidv4()});
     this.setState(intialState);
+    this.props.onClose();
+
   }
 
   render(){
     const {date,time,category,amount,currency} = this.state;
-    console.log(date);
     return(
 
     <>
     <Section>
-      <Form onSubmit={this.handleSubmit}>
-        <CardTitle title="Расходы" onClose={this.props.onClose}/>
+      <Form onSubmit={this.handleSubmit} index={this.props.settings.index}>
+        <CardTitle title={this.props.settings.title}
+        onClose={this.props.onClose}
+        />
         <div className="inputWrapper">
 
           <Input
@@ -75,7 +78,7 @@ class CardSpendings extends Component{
 
         <div className="inputWrapper">
           <Select
-            sets={data.expenses}
+            sets={this.props.settings.category}
             onChange={this.handlerChange}
             value={category}
           />
@@ -94,7 +97,7 @@ class CardSpendings extends Component{
 
         <div className="inputWrapper">
         <Select
-          sets={data.currency}
+          sets={this.props.settings.currency}
           onChange={this.handlerChange}
           value={currency}
         />
@@ -107,4 +110,4 @@ class CardSpendings extends Component{
   }
 }
 
-export default CardSpendings;
+export default Card;
