@@ -1,0 +1,60 @@
+{
+  "spending": [
+    {
+      "id": "8dcc9e83-a293-4fd0-a7b4-c6fbc5ff057d",
+      "date": "2021-01-29",
+      "time": "01:33",
+      "amount": "10",
+      "category": "food",
+      "currency": "USD",
+      "status": "spending"
+    },
+    {
+      "id": "262bded7-b472-4165-9603-2e8472c0c72f",
+      "date": "2021-01-29",
+      "time": "01:33",
+      "amount": "15",
+      "category": "drinks",
+      "currency": "USD",
+      "status": "spending"
+    },
+    {
+      "id": "5f64496b-85a6-413b-b1da-f9699d51b248",
+      "date": "2021-01-29",
+      "time": "01:34",
+      "amount": "25",
+      "category": "clothes",
+      "currency": "USD",
+      "status": "spending"
+    }
+  ],
+  "income": [
+    {
+      "id": "bdbb1288-31e0-4eb5-9bf0-60a9b423fd47",
+      "date": "2021-01-29",
+      "time": "01:34",
+      "amount": "100",
+      "category": "",
+      "currency": "USD",
+      "status": "income"
+    },
+    {
+      "id": "2f957e28-5feb-4c1c-8bfc-b878d3f44e79",
+      "date": "2021-01-29",
+      "time": "01:34",
+      "amount": "120",
+      "category": "",
+      "currency": "USD",
+      "status": "income"
+    },
+    {
+      "id": "0ea547b7-2509-405d-9ac8-636482884ede",
+      "date": "2021-01-29",
+      "time": "01:34",
+      "amount": "200",
+      "category": "",
+      "currency": "USD",
+      "status": "income"
+    }
+  ]
+}

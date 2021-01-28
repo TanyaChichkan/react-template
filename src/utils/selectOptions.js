@@ -31,4 +31,13 @@ name: "income",
   ]
 };
 
-export default {expenses, currency, income};
+const spendingList={
+  name: "spendingList",
+  options:[
+    {value:"day",title: "День"},
+    {value:"week",title: "Неделя"},
+    {value:"month",title: "Месяц"}
+  ]
+}
+
+export default {expenses, currency, income,spendingList};

@@ -1,19 +1,28 @@
 import React from 'module';
+import {withRouter} from 'react-router-dom';
+
+import Button from '../button/Button';
 
 const style={display: 'flex', alignItems:'center'};
 const buttonStyle={width: '100px', height:"30px"}
 
-const CardTitle=({title, onClose})=>{
+const CardTitle=({title,history})=>{
+
+  const goBackHome=()=>{
+    history.push('/');
+  }
+
   return(
     <header style={style}>
-      <button type="button"
+      <Button type="button"
       style={buttonStyle}
-      onClick={onClose}
-      >Go back</button>
+      onClick={goBackHome}
+      title="Go back"/>
+ 
       <h2>{title}</h2>
       <button type="submit" style={buttonStyle}>OK</button>
     </header>
   )
 };
 
-export default CardTitle;
+export default withRouter(CardTitle);
